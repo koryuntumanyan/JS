@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <ol id="elem">
+        <li>Привет</li>
+        <li>Мир</li>
+    </ol>
+
+    <script>
+        let elem = document.getElementById("elem");
+        function clear(elem) {
+            let elemarr = elem.children;
+            for (let i = 0; elemarr.length > 0; )
+                elem.children[i].remove();
+        }
+        clear(elem);
+    </script>
+</body>
+</html>

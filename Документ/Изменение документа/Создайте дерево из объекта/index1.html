@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <ul id="container">
+
+    </ul>
+    <script>
+        let data = {
+            "Рыбы": {
+                "форель": {},
+                "лосось": {}
+            },
+            "Деревья": {
+                "Огромные": {
+                    "секвойя": {},
+                    "дуб": {}
+                },
+                "Цветковые": {
+                    "яблоня": {},
+                    "магнолия": {}
+                }
+            }
+        };
+        let container = document.getElementById('container');
+        function createTree(cnt, dt) {
+
+            for (let i in dt)
+            {
+                if (Object.keys(dt[i]).length > 0) {
+                    let li1 = document.createElement('li');
+                    li1.textContent = i;
+                    container.append(li1);
+                    let ul1 = document.createElement('ul');
+                    li1.append(ul1);
+                    for (let j in dt[i]) {
+                        if (Object.keys(dt[i][j]).length > 0) {
+                            let li2 = document.createElement('li');
+                            li2.textContent = j;
+                            ul1.append(li2);
+                            let ul2 = document.createElement('ul')
+                            li2.append(ul2);
+                            for (let k in dt[i][j]) {
+                                let li3 = document.createElement('li');
+                                li3.textContent = k;
+                                ul2.append(li3);
+                            }
+                        }
+                        else {
+                            let li2 = document.createElement('li');
+                            li2.textContent = j;
+                            ul1.append(li2);
+                        }
+                    }
+                }
+                else {
+                    let li1 = document.createElement('li');
+                    li1.textContent = i;
+                    container.append(i);
+                }
+            }
+        }
+        createTree(container, data);
+    </script>
+</body>
+</html>
